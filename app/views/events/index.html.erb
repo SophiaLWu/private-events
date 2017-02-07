@@ -1,0 +1,24 @@
+<h1> All Events </h1>
+
+<%# if @user.created_events.any?  %>
+  <%# @user.created_events.each do |event| %>
+    <%#= event.title %>
+    <%#= event.description %>
+  <%# end %>
+<%# end %>
+
+<% if @events.any? %>
+  <% @events.each do |event| %>
+     <h2>
+      <%= event.title %>
+     </h2>
+     <p>
+      Description:
+      <%= event.description %>
+     </p>
+     <p>
+      Created by: 
+      <%= User.find_by(:id => event.creator_id).name %>
+     </p>
+  <% end %>
+<% end %>

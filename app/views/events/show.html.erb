@@ -1,0 +1,15 @@
+<h1>
+  <%= @event.title %>
+</h1>
+
+<h2>
+  Created by: 
+  <%= User.find_by(:id => @event.creator_id).name %>
+</h2>
+
+<p>
+  Description:
+  <%= @event.description %>
+</p>
+
+
