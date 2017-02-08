@@ -13,6 +13,17 @@
       <%= f.label :description %>
       <%= f.text_area :description %>
 
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+
+      <%= f.label :date_and_time %>
+      <%= f.datetime_select :date, :ampm => true, 
+                            :minute_step => 15,
+                            :start_year => Time.now.year,
+                            :start_month => Time.now.month,
+                            :start_day => Time.now.day
+                             %>
+
       <%= f.submit "Create event", class: "btn btn-primary" %>
     <% end %>
   </div>

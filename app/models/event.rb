@@ -3,7 +3,6 @@ class Event < ApplicationRecord
   has_many :attendees, :through => :invitations
   has_many :invitations, :foreign_key => "attended_event_id"
 
-  default_scope -> { order(date: :desc) }
   scope :upcoming, -> {where("date > ?", DateTime.now)}
   scope :past, -> {where("date < ?", DateTime.now)}
 
