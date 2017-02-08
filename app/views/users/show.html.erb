@@ -2,15 +2,35 @@
   <%= @user.name %>
 </h1>
 
-<p>
-  <h2>
-    Your Hosted Events
-  </h2>
-  <% if @user.created_events.any? %>
-    <% @user.created_events.each do |event| %>
-      <h4>
-        <%= event.title %>
-      </h4>
-    <% end %>
+<h2>
+  Your Hosted Events
+</h2>
+<% if @user.created_events.any? %>
+  <% @user.created_events.each do |event| %>
+    <h4>
+      <%= event.title %>
+    </h4>
   <% end %>
-</p>
+<% end %>
+
+<h2>
+  Your Upcoming Events
+</h2>
+<% if @upcoming_events.any? %>
+  <% @upcoming_events.each do |event| %>
+    <h4>
+      <%= event.title %>
+    </h4>
+  <% end %>
+<% end %>
+
+<h2>
+  Your Past Events
+</h2>
+<% if @past_events.any? %>
+  <% @past_events.each do |event| %>
+    <h4>
+      <%= event.title %>
+    </h4>
+  <% end %>
+<% end %>

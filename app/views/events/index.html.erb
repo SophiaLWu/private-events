@@ -1,14 +1,8 @@
 <h1> All Events </h1>
 
-<%# if @user.created_events.any?  %>
-  <%# @user.created_events.each do |event| %>
-    <%#= event.title %>
-    <%#= event.description %>
-  <%# end %>
-<%# end %>
-
-<% if @events.any? %>
-  <% @events.each do |event| %>
+<h2> Upcoming Events </h2>
+<% if Event.upcoming.any? %>
+  <% Event.upcoming.each do |event| %>
      <h3>
       <%= event.title %>
      </h3>
@@ -17,6 +11,39 @@
       <%= event.description %>
      </p>
      <p>
+     <p>
+      Attendees:
+      <% if event.attendees.any? %>
+        <% event.attendees.each do |attendee| %>
+          <%= attendee.name %>
+        <% end %>
+      <% end %>
+     </p>
+      Created by: 
+      <%= User.find_by(:id => event.creator_id).name %>
+     </p>
+  <% end %>
+<% end %>
+
+<h2> Past Events </h2>
+<% if Event.past.any? %>
+  <% Event.past.each do |event| %>
+     <h3>
+      <%= event.title %>
+     </h3>
+     <p>
+      Description:
+      <%= event.description %>
+     </p>
+     <p>
+     <p>
+      Attendees:
+      <% if event.attendees.any? %>
+        <% event.attendees.each do |attendee| %>
+          <%= attendee.name %>
+        <% end %>
+      <% end %>
+     </p>
       Created by: 
       <%= User.find_by(:id => event.creator_id).name %>
      </p>
