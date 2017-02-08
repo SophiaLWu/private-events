@@ -1,10 +1,12 @@
+<% provide(:title, "My Events") %>
+
 <h1>
   <%= @user.name %>
 </h1>
 
-<h2>
-  Your Hosted Events
-</h2>
+<h3>
+  My Hosted Events
+</h3>
 <% if @user.created_events.any? %>
   <% @user.created_events.each do |event| %>
     <h4>
@@ -13,9 +15,9 @@
   <% end %>
 <% end %>
 
-<h2>
-  Your Upcoming Events
-</h2>
+<h3>
+  My Upcoming Events
+</h3>
 <% if @upcoming_events.any? %>
   <% @upcoming_events.each do |event| %>
     <h4>
@@ -24,9 +26,9 @@
   <% end %>
 <% end %>
 
-<h2>
-  Your Past Events
-</h2>
+<h3>
+  My Past Events
+</h3>
 <% if @past_events.any? %>
   <% @past_events.each do |event| %>
     <h4>
