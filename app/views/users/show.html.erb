@@ -12,6 +12,13 @@
     <h4>
       <%= event.title %>
     </h4>
+    <ul>
+      <% unless event.description.empty? %>
+        <li>Description: <%= event.description %></li>
+      <% end %>
+      <li>Date/Time: <%= event.date %></li>
+      <li>Location: <%= event.location %></li>
+    </ul>
   <% end %>
 <% end %>
 
@@ -23,6 +30,13 @@
     <h4>
       <%= event.title %>
     </h4>
+    <ul>
+      <% unless event.description.empty? %>
+        <li>Description: <%= event.description %></li>
+      <% end %>
+      <li>Date/Time: <%= event.date %></li>
+      <li>Location: <%= event.location %></li>
+    </ul>
   <% end %>
 <% end %>
 
@@ -34,5 +48,12 @@
     <h4>
       <%= event.title %>
     </h4>
+    <ul>
+      <% unless event.description.empty? %>
+        <li>Description: <%= event.description %></li>
+      <% end %>
+      <li>Date/Time: <%= event.date %></li>
+      <li>Location: <%= event.location %></li>
+    </ul>
   <% end %>
 <% end %>

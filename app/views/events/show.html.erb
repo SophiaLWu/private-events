@@ -7,9 +7,11 @@
   <%= User.find_by(:id => @event.creator_id).name %>
 </h2>
 
-<p>
-  Description:
-  <%= @event.description %>
-</p>
-
+<ul>
+  <% unless @event.description.empty? %>
+    <li>Description: <%= @event.description %></li>
+  <% end %>
+  <li>Date/Time: <%= @event.date %></li>
+  <li>Location: <%= @event.location %></li>
+</ul>
 
