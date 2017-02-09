@@ -1,5 +1,10 @@
-<h1>Private Events</h1>
-<p>
-  Make events, invite others, and keep track of all your past and 
-  upcoming events!
-</p>
+<div class="center jumbotron">
+  <h1>Private Events</h1>
+  <p>
+    Make events, invite others, and keep track of all your past and 
+    upcoming events!
+  </p>
+  <% unless logged_in? %>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
+</div>
