@@ -5,55 +5,59 @@
 <h3> Upcoming Events </h3>
 <% if Event.upcoming.any? %>
   <% Event.upcoming.each do |event| %>
-     <h4>
-      <%= event.title %>
-     </h4>
-     <ul>
-      <% unless event.description.empty? %>
-        <li>Description: <%= event.description %></li>
-      <% end %>
-      <li>Date/Time: <%= event.date %></li>
-      <li>Location: <%= event.location %></li>
-    </ul>
-     <p>
-     <p>
-      Attendees:
-      <% if event.attendees.any? %>
-        <% event.attendees.each do |attendee| %>
-          <%= attendee.name %>
+    <div class="event">
+      <h4>
+        <%= link_to event.title, event %>
+      </h4>
+      <ul>
+        <% unless event.description.empty? %>
+          <li>Description: <%= event.description %></li>
         <% end %>
-      <% end %>
-     </p>
-      Created by: 
-      <%= User.find_by(:id => event.creator_id).name %>
-     </p>
+        <li>Date/Time: <%= event.date %></li>
+        <li>Location: <%= event.location %></li>
+      </ul>
+      <p>
+        Attendees:
+        <% if event.attendees.any? %>
+          <% event.attendees.each do |attendee| %>
+            <%= attendee.name %>
+          <% end %>
+        <% end %>
+      </p>
+      <p>
+        Created by: 
+        <%= User.find_by(:id => event.creator_id).name %>
+      </p>
+    </div>
   <% end %>
 <% end %>
 
 <h3> Past Events </h3>
 <% if Event.past.any? %>
   <% Event.past.each do |event| %>
-     <h4>
-      <%= event.title %>
-     </h4>
-     <ul>
-      <% unless event.description.empty? %>
-        <li>Description: <%= event.description %></li>
-      <% end %>
-      <li>Date/Time: <%= event.date %></li>
-      <li>Location: <%= event.location %></li>
-    </ul>
-     <p>
-     <p>
-      Attendees:
-      <% if event.attendees.any? %>
-        <% event.attendees.each do |attendee| %>
-          <%= attendee.name %>
+    <div class="event">
+      <h4>
+        <%= link_to event.title, event %>
+      </h4>
+      <ul>
+        <% unless event.description.empty? %>
+          <li>Description: <%= event.description %></li>
         <% end %>
-      <% end %>
-     </p>
-      Created by: 
-      <%= User.find_by(:id => event.creator_id).name %>
-     </p>
+        <li>Date/Time: <%= event.date %></li>
+        <li>Location: <%= event.location %></li>
+      </ul>
+      <p>
+        Attendees:
+        <% if event.attendees.any? %>
+          <% event.attendees.each do |attendee| %>
+            <%= attendee.name %>
+          <% end %>
+        <% end %>
+      </p>
+      <p>
+        Created by: 
+        <%= User.find_by(:id => event.creator_id).name %>
+      </p>
+    </div>
   <% end %>
 <% end %>

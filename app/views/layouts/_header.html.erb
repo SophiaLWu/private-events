@@ -20,7 +20,9 @@
   </div>
 </header>
 
-<% if logged_in? %>
-  Logged in as: <%= current_user.name %>
-<% end %>
+<div class="center">
+  <% if logged_in? %>
+    Logged in as: <%= current_user.name %>
+  <% end %>
+</div>
 

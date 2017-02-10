@@ -1,7 +1,7 @@
 <% provide(:title, "My Events") %>
 
 <h1>
-  <%= @user.name %>
+  <%= @user.name %>'s Events
 </h1>
 
 <h3>
@@ -10,15 +10,9 @@
 <% if @user.created_events.any? %>
   <% @user.created_events.each do |event| %>
     <h4>
-      <%= event.title %>
+      <%= "#{event.date.month}-#{event.date.day}-#{event.date.year}" %>
+      <%= link_to event.title, event %>
     </h4>
-    <ul>
-      <% unless event.description.empty? %>
-        <li>Description: <%= event.description %></li>
-      <% end %>
-      <li>Date/Time: <%= event.date %></li>
-      <li>Location: <%= event.location %></li>
-    </ul>
   <% end %>
 <% end %>
 
@@ -28,7 +22,7 @@
 <% if @upcoming_events.any? %>
   <% @upcoming_events.each do |event| %>
     <h4>
-      <%= event.title %>
+      <%= link_to event.title, event %>
     </h4>
     <ul>
       <% unless event.description.empty? %>
@@ -46,7 +40,7 @@
 <% if @past_events.any? %>
   <% @past_events.each do |event| %>
     <h4>
-      <%= event.title %>
+      <%= link_to event.title, event %>
     </h4>
     <ul>
       <% unless event.description.empty? %>
