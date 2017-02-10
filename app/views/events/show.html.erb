@@ -3,15 +3,24 @@
 </h1>
 
 <h2>
-  Created by: 
+  <b>Created by</b>: 
   <%= User.find_by(:id => @event.creator_id).name %>
 </h2>
 
 <ul>
   <% unless @event.description.empty? %>
-    <li>Description: <%= @event.description %></li>
+    <li><b>Description</b>: <%= @event.description %></li>
   <% end %>
-  <li>Date/Time: <%= @event.date %></li>
-  <li>Location: <%= @event.location %></li>
+  <li><b>Date/Time</b>: <%= @event.date %></li>
+  <li><b>Location</b>: <%= @event.location %></li>
+  <li><b>Attendees</b>:
+    <ul>
+      <% if @event.attendees.any? %>
+        <% @event.attendees.each do |attendee| %>
+          <li><%= attendee.name %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </li>
 </ul>
 

@@ -1,0 +1,22 @@
+<div class="event">
+  <h4>
+    <%= link_to event.title, event %>
+  </h4>
+  <ul>
+    <% unless event.description.empty? %>
+      <li><b>Description</b>: <%= event.description %></li>
+    <% end %>
+    <li><b>Date/Time</b>: <%= event.date %></li>
+    <li><b>Location</b>: <%= event.location %></li>
+    <li><b>Created by</b>: <%= User.find_by(:id => event.creator_id).name %></li>
+    <li><b>Attendees</b>:
+      <ul>
+        <% if event.attendees.any? %>
+          <% event.attendees.each do |attendee| %>
+            <li><%= attendee.name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
+</div>

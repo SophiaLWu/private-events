@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* list styles */
+
+li {
+  list-style-type: none;
+}
 
 /* mixins, variables, etc. */
 
