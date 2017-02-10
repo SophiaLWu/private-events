@@ -1,17 +1,18 @@
 <% provide(:title, "All Events") %>
 
-<h1> All Events </h1>
+<h1>All Events</h1>
 
-<h3> Upcoming Events </h3>
+<h3>Upcoming Events</h3>
 <% if Event.upcoming.any? %>
-  <% Event.upcoming.each do |event| %>
-    <%= render 'event', :event => event %>
-  <% end %>
+    <% Event.upcoming.each do |event| %>
+      <%= render 'event', :event => event %>
+    <% end %>
 <% end %>
 
-<h3> Past Events </h3>
+<h3>Past Events</h3>
 <% if Event.past.any? %>
-  <% Event.past.each do |event| %>
-    <%= render 'event', :event => event %>
-  <% end %>
+    <% Event.past.each do |event| %>
+      <%= render 'event', :event => event %>
+    <% end %>
+  </table>
 <% end %>

@@ -3,20 +3,34 @@
     <%= link_to event.title, event %>
   </h4>
   <ul>
-    <% unless event.description.empty? %>
-      <li><b>Description</b>: <%= event.description %></li>
-    <% end %>
-    <li><b>Date/Time</b>: <%= event.date %></li>
-    <li><b>Location</b>: <%= event.location %></li>
-    <li><b>Created by</b>: <%= User.find_by(:id => event.creator_id).name %></li>
-    <li><b>Attendees</b>:
-      <ul>
+  <table>
+    <tr>
+      <td><b>Description</b></td> 
+      <td>
+        <% unless event.description.empty? %>
+          <%= event.description %>
+        <% else %>
+          None
+        <% end %>
+      </td>
+    <tr>
+      <td><b>Date/Time</b></td> 
+      <td><%= event.date %></td>
+    </tr>
+    <tr>
+      <td><b>Location</b></td> 
+      <td><%= event.location %></td>
+    </tr>
+    <tr>
+      <td><b>Attendees</b></td>
+      <td>
         <% if event.attendees.any? %>
           <% event.attendees.each do |attendee| %>
-            <li><%= attendee.name %></li>
+            <div><%= attendee.name %></div>
           <% end %>
         <% end %>
-      </ul>
-    </li>
+        </td>
+      </tr>
+  </table>
   </ul>
 </div>

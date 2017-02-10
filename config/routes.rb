@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   resources :users, only: [:new, :show, :create]
   resources :events, only: [:new, :show, :index, :create]
+  resources :invitations, only: [:new, :create]
 end
